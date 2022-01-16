@@ -11,7 +11,7 @@ public class ProcessorTests
         var testInputData = System.IO.File.ReadAllLines("InputData/TestInput.txt");
         
         // Act
-        var result = Day10Processor.Execute(testInputData);
+        var result = Processor.Execute(testInputData);
 
         // Assert
         Assert.Equal(26397, result);
