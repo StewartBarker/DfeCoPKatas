@@ -20,4 +20,13 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="InputData\TestInput.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="InputData\MyPuzzleInput.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
