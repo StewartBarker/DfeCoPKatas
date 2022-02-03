@@ -5,6 +5,7 @@ namespace AoC2021Day10.ExtensionMethods;
 public static class CharacterExtensions
 {
     public static bool IsOpeningParenthesis (this char c)  => ((IList)new[] { '{', '[', '(', '<' }).Contains(c);
+    public static bool IsClosingParenthesis (this char c)  => ((IList)new[] { '}', ']', ')', '>' }).Contains(c);
     
     public static char MatchingOpeningParenthesis(this char closingParenthesis)
     {
