@@ -31,4 +31,8 @@
       </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\AoC2021Day10\AoC2021Day10.csproj" />
+    </ItemGroup>
+
 </Project>

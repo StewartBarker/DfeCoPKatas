@@ -1,11 +1,9 @@
-using System;
-using System.Collections;
+﻿using System.Collections;
 
 namespace AoC2021Day10;
 
-public static class Processor
+public static class Part1Processor
 {
-    
     public static int Execute(string[] data)
     {
         var characterStack = new Stack();
