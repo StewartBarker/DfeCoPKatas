@@ -7,7 +7,7 @@ public static class Part1Processor
 {
     public static int Execute(string[] data)
     {
-        var characterStack = new Stack();
+        var characterStack = new Stack<char>();
         var score = 0;
         foreach (var line in data)
         {
@@ -20,7 +20,7 @@ public static class Part1Processor
                 else
                 {
                     var expected = character.MatchingOpeningParenthesis();
-                    var actual = (char)characterStack.Pop();
+                    var actual = characterStack.Count > 0 ? characterStack.Pop() : (char?)null;
                     if (actual != expected)
                     {
                         score += GetCharacterScore(expected);
@@ -41,7 +41,8 @@ public static class Part1Processor
             '[' => 57,
             '{' => 1197,
             '<' => 25137,
-            _ => throw new ArgumentOutOfRangeException(nameof(openingParenthesis), $"{openingParenthesis} is an invalid character")
+            _ => throw new ArgumentOutOfRangeException(nameof(openingParenthesis),
+                $"{openingParenthesis} is an invalid character")
         };
     }
 }

@@ -37,4 +37,17 @@ public class Part1ProcessorTests
         // Assert
         _testOutputHelper.WriteLine(result.ToString());
     }
+
+    [Fact]
+    public void GivenChunkStartsWithClosingBracket_ShouldReturnCorrectScore()
+    {
+        // Arrange
+        var testInputDataString = new [] {"}"};
+        
+        // Act
+        var result = Part1Processor.Execute(testInputDataString);
+        
+        // Assert
+        Assert.Equal(1197, result);
+    }
 }
