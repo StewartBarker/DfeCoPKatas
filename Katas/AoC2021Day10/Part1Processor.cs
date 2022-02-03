@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using AoC2021Day10.ExtensionMethods;
+﻿using AoC2021Day10.ExtensionMethods;
 
 namespace AoC2021Day10;
 
@@ -20,7 +19,7 @@ public static class Part1Processor
                 else
                 {
                     var expected = character.MatchingOpeningParenthesis();
-                    var actual = characterStack.Count > 0 ? characterStack.Pop() : (char?)null;
+                    char? actual = characterStack.Count > 0 ? characterStack.Pop() : null;
                     if (actual != expected)
                     {
                         score += GetCharacterScore(expected);
