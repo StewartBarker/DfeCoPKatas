@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using AoC2021Day10.ExtensionMethods;
 
 namespace AoC2021Day10;
 
@@ -12,13 +13,13 @@ public static class Part1Processor
         {
             foreach (var character in line)
             {
-                if (IsOpeningParenthesis(character))
+                if (character.IsOpeningParenthesis())
                 {
                     characterStack.Push(character);
                 }
                 else
                 {
-                    var expected = GetMatchingOpeningParenthesis(character);
+                    var expected = character.MatchingOpeningParenthesis();
                     var actual = (char)characterStack.Pop();
                     if (actual != expected)
                     {
@@ -28,9 +29,7 @@ public static class Part1Processor
                 }
             }
         }
-        
-        bool IsOpeningParenthesis(char c) => ((IList)new[] { '{', '[', '(', '<' }).Contains(c);
-        
+
         return score;
     }
 
@@ -43,18 +42,6 @@ public static class Part1Processor
             '{' => 1197,
             '<' => 25137,
             _ => throw new ArgumentOutOfRangeException(nameof(openingParenthesis), $"{openingParenthesis} is an invalid character")
-        };
-    }
-
-    private static char GetMatchingOpeningParenthesis(char closingParenthesis)
-    {
-        return closingParenthesis switch
-        {
-            ']' => '[',
-            '}' => '{',
-            ')' => '(',
-            '>' => '<',
-            _ => throw new ArgumentOutOfRangeException(nameof(closingParenthesis), $"Can't find matching opening parenthesis for '{closingParenthesis}'")
         };
     }
 }
