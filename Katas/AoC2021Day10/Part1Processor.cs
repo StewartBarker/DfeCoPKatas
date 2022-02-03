@@ -16,7 +16,7 @@ public static class Part1Processor
                 {
                     characterStack.Push(character);
                 }
-                else
+                else if (character.IsClosingParenthesis())
                 {
                     var expected = character.MatchingOpeningParenthesis();
                     char? actual = characterStack.Count > 0 ? characterStack.Pop() : null;
@@ -25,6 +25,10 @@ public static class Part1Processor
                         score += GetCharacterScore(expected);
                         break;
                     }
+                }
+                else
+                {
+                    throw new ArgumentException($"Invalid character in data: '{character}'", nameof(data));
                 }
             }
         }

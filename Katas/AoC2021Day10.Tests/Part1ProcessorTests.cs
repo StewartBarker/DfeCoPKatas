@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -49,5 +50,20 @@ public class Part1ProcessorTests
         
         // Assert
         Assert.Equal(1197, result);
+    }
+
+    [Theory]
+    [InlineData('a')]
+    [InlineData(' ')]
+    [InlineData('%')]
+    public void GivenInvalidCharacter_ShouldThrowArgumentException(char invalidCharacter)
+    {
+        // Arrange
+        var testInputDataString = new[] { $"{invalidCharacter}" };
+        
+        // Act
+        // Assert
+        var result = Assert.Throws<ArgumentException>(() => Part1Processor.Execute(testInputDataString));
+        Assert.Equal($"Invalid character in data: '{invalidCharacter}' (Parameter 'data')",result.Message);
     }
 }
