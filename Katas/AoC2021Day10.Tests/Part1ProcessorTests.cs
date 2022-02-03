@@ -3,11 +3,11 @@ using Xunit.Abstractions;
 
 namespace AoC2021Day10;
 
-public class ProcessorTests
+public class Part1ProcessorTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
 
-    public ProcessorTests(ITestOutputHelper testOutputHelper)
+    public Part1ProcessorTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
     }
